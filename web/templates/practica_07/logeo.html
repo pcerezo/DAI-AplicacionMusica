@@ -1,0 +1,16 @@
+{% extends "practica_07/music.html" %}
+
+{% load i18n %}
+
+
+{% block logeo %}
+<div class="logeo">
+    <h4>Indica tus datos para logearte</h4>
+    <form class="login" method="POST" action="{% url 'login' %}">{% csrf_token %}
+        
+        <label>Usuario<input type="text" name="username"></label>
+        <label>Contraseña<input type="password" name="password"></label>
+        <button type="submit" class="btn btn-lg btn-primary">Iniciar sesión</button>
+    </form>
+</div>
+{% endblock %}

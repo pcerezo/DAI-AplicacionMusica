@@ -1,0 +1,8 @@
+{% extends 'practica_07/music.html' %}
+
+{% block datos %}
+<form method="POST" class="post-form">{% csrf_token %}
+    <h2>¿Seguro que deseas borrar el grupo {{ post.nombre }}?</h2>
+    <button class="btn btn-default" type="submit">Sí<span class="glyphicon glyphicon-pencil"></span></button>
+</form>
+{% endblock %}

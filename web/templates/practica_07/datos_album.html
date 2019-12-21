@@ -1,0 +1,15 @@
+{% extends "practica_07/music.html" %}
+
+{% block datos %}
+<div class="resultados">
+    <h2>Álbum guardado:</h2>
+    <div class="datos">
+        <p>{{ post.titulo }}</p>
+        <p>{{ post.distribuidora }}</p>
+        <p>{{ post.fecha_lanzamiento }}</p>
+    </div>
+</div>
+
+<a class="btn btn-warning" href="{% url 'editAlbum' pk=post.pk %}">Editar álbum<span class="glyphicon glyphicon-pencil"></span></a>
+
+{% endblock %}

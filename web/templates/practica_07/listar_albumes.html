@@ -1,0 +1,13 @@
+{% extends "practica_07/music.html" %}
+
+{% block datos %}
+<div class="resultados">
+    <h3>Lista de álbumes:</h3>
+    
+    {% for album in datos %}
+        <a href="{% url 'datosAlbum' pk=album.pk %}">{{ album.titulo }}</a>
+        <br>
+    {% endfor %}
+</div>
+
+{% endblock %}

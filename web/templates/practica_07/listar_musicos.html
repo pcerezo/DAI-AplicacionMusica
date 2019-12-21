@@ -1,0 +1,13 @@
+{% extends "practica_07/music.html" %}
+
+{% block datos %}
+<div class="resultados">
+    <h3>Lista de músicos:</h3>
+    
+    {% for musico in datos %}
+        <a href="{% url 'datosMusico' pk=musico.pk %}">{{ musico.nombre }} {{ musico.apellidos }}</a>
+        <br>
+    {% endfor %}
+</div>
+
+{% endblock %}

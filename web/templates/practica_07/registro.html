@@ -1,0 +1,10 @@
+{% extends "practica_07/music.html" %}
+
+{% block registro %}
+<form method="POST" class="post-form">{% csrf_token %}
+    <label>Usuario<input type="text" name="username"></label>
+    <label>Email<input type="email" name="email"></label>
+    <label>Contraseña<input type="password" name="password"></label>
+    <button type="submit" class="btn btn-lg btn-info">Crear usuario</button>
+</form>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "practica_07/music.html" %}
+
+{% block grupo %}
+    {% csrf_token %}
+                        
+    {{ form.as_p }}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button>
+{% endblock %}
