@@ -4,10 +4,19 @@
 <div class="resultados">
     <h3>Lista de álbumes:</h3>
     
+    {% block select %}
+    {% endblock %}
+
     {% for album in datos %}
         <a href="{% url 'datosAlbum' pk=album.pk %}">{{ album.titulo }}</a>
         <br>
     {% endfor %}
 </div>
+
+{% block botones %}
+{% endblock %}
+
+{% block script %}
+{% endblock %}
 
 {% endblock %}

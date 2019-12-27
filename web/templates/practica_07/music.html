@@ -2,27 +2,16 @@
 <html lang="es">
 <head>
     {% load static %}
-    <script src="/static/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/static/bootstrap/js/plugins/jqBootstrapValidation.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 <h1 class="text-center"> Base de datos de música </h1>
-	<div class="col-lg-12">
-		<style>
-  			.form-signin {
-    			max-width: 550px;
-    			padding: 15px;
-  		  	margin: 0 auto;
-  			}
-        </style>
-
-        
+	<div class="container-fluid">
+		        
         <div class="login">
             {% if user.is_authenticated %}
                 {% load account %}
@@ -40,10 +29,14 @@
             {% endif %}
         </div>
 
-        <button class="fondo btn-secondary" id="rojo">Fondo de color <span style="color: red;">rojo</span></button>
-        <button class="fondo btn-secondary" id="azul">Fondo de color <span style="color: blue;">azul</span></button>
-        <button class="meme btn">Meme</button>
-        <img src="/static/meme.gif" class="meme" id="badumtss" width="120p" height="100p">
+        <div class="botones">
+            <h3>Temas de fondo:</h3>
+            <button class="fondo btn-secondary" id="background-default">Fondo por defecto</span></button>
+            <button class="fondo btn-secondary" id="background-azul">Fondo de color <span style="color: blue">azul</span></button>
+            <button class="fondo btn-secondary" id="background-noche">Fondo <span style="color: rgb(33, 33, 59);">noche</span></button>
+            <button class="animacion btn">Meme</button>
+            <img src="/static/meme.gif" class="meme" id="badumtss" width="120p" height="100p">
+        </div>
 
         <div id="opciones">
             <h2>Indica qué datos vas a introducir</h2>
@@ -71,14 +64,42 @@
     </div>
 
     <script>
-        $("button#rojo").click(function(){
-            $("body").css("background-color", "red");
+        $("button#background-default").click(function(){
+            $("body").css("background-color", "rgb(255, 255, 255)");
+            $("p").css("color", "black");
+            $("h1").css("color", "black");
+            $("h2").css("color", "black");
+            $("h3").css("color", "black");
+            $("h4").css("color", "black");
+            $("button.animacion").css("color", "black");
+
+            $("nav#enlaces").removeClass("bg-warning");
         });
 
-        $("button#azul").click(function(){
-            $("body").css("background-color", "blue");
+        $("button#background-azul").click(function(){
+            $("body").css("background-color", "rgb(147, 147, 255)");
+            $("p").css("color", "black");
+            $("h1").css("color", "black");
+            $("h2").css("color", "black");
+            $("h3").css("color", "black");
+            $("h4").css("color", "black");
+            //$("button").css("color", "black");
+
+            $("nav#enlaces").removeClass("bg-warning");
         });
         
+        $("button#background-noche").click(function(){
+            $("body").css("background-color", "rgb(33, 33, 59)");
+            $("p").css("color", "white");
+            $("h1").css("color", "white");
+            $("h2").css("color", "white");
+            $("h3").css("color", "white");
+            $("h4").css("color", "white");
+            $("button").css("color", "white");
+
+            $("nav#enlaces").removeClass("bg-light");
+            $("nav#enlaces").addClass("bg-warning");
+        });
 
         $("button.meme").click(function(){
             if( $("img.meme").css('visibility') != 'visible') {
@@ -91,6 +112,7 @@
     </script>
 </body>
 <footer>
-    
+    <p>Alumno: Pablo Cerezo Sánchez</p>
+    <p>Asignatura: DAI</p>
 </footer>
 </html>

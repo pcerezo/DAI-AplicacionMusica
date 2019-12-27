@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
 from .forms import AlbumForm, GrupoForm, MusicoForm
 from .models import Album, Grupo, Musico
 import requests
@@ -135,9 +136,7 @@ def listarGrupos(request):
 
     grupos = g.__class__.objects.all()
 
-    print(grupos)
-
-    return render(request, "practica_07/listar_grupos.html", {'datos': grupos})
+    return render(request, "practica_07/paginador.html", {'datos': grupos, 'tipo': "Grupo"})
 
 def listarAlbumes(request):
     albumes = []
@@ -145,7 +144,7 @@ def listarAlbumes(request):
 
     albumes = a.__class__.objects.all()
 
-    return render(request, "practica_07/listar_albumes.html", {'datos': albumes})
+    return render(request, "practica_07/paginador.html", {'datos': albumes, 'tipo': "Album"})
 
 def listarMusicos(request):
     musicos = []
@@ -154,7 +153,10 @@ def listarMusicos(request):
 
     musicos = m.__class__.objects.all()
 
-    return render(request, "practica_07/listar_musicos.html", {'datos': musicos})
+    return render(request, "practica_07/paginador.html", {'datos': musicos, 'tipo': "Musico"})
+
+#def reclamaDatos(request):
+
 
 #-------------Mostrar datos de cada objeto----------------------------------------------------
 def borrarGrupo(request, pk):
